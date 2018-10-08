@@ -16,6 +16,7 @@
             .then(resp => resp.json())
             .then(res => {
                 const { descriptions } = res
+
                 desc = encodeURIComponent(JSON.stringify(descriptions))
                 return window.FreelogApp.QI.resolveResourceUrl({ resourceId })
             })

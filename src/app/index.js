@@ -102,6 +102,10 @@ class FreelogMemeResourceRender extends HTMLElement {
           str += `top: ${this.formatStyleValue(obj[prop])};`
           break
         }
+        case 'left': {}
+        case 'right': {}
+        case 'top': {}
+        case 'bottom': {}
         case 'width': {}
         case 'height': {}
         case 'fontSize': {
