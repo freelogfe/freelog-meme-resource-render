@@ -1,4 +1,4 @@
-# freelog-memerender2-wwzh
+# freelog-meme-resource-render
 
 > A freelog widget
 
@@ -8,7 +8,7 @@
 # install dependencies
 npm install
 
-# serve at localhost:9001
+# serve at localhost:9180
 npm run dev
 
 # build for production with minification

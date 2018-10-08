@@ -1,7 +1,7 @@
 var html = require('./index.html')
 var css = require('./index.less')
 
-class FreelogMemerender2Wwzh extends HTMLElement {
+class FreelogMemeResourceRender extends HTMLElement {
   constructor() {
     super()
     let self = this;
@@ -136,4 +136,4 @@ class FreelogMemerender2Wwzh extends HTMLElement {
   }
 }
 
-customElements.define('freelog-memerender2-wwzh', FreelogMemerender2Wwzh);
+customElements.define('freelog-meme-resource-render', FreelogMemeResourceRender)
