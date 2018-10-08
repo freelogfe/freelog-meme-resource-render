@@ -1,0 +1,49 @@
+<div class="js-wc-widget" data-widget-src="44d229b957dbb604df77c09bdd9a14df49c89a71"></div>
+
+<div id="meme-box">
+
+</div>
+<script>
+    window.__auth_info__ = {"__auth_user_id__":10008, "__auth_node_id__":10023}
+
+    var $memeBox = null
+
+
+    function renderMeme (presentableId, resourceId){
+        
+        var desc = null
+        window.FreelogApp.QI.fetchPresentableResourceData(presentableId)
+            .then(resp => resp.json())
+            .then(res => {
+                const { descriptions } = res
+                desc = encodeURIComponent(JSON.stringify(descriptions))
+                return window.FreelogApp.QI.resolveResourceUrl({ resourceId })
+            })
+            .then(url => {
+                var $dom = document.createElement('freelog-memerender2-wwzh')
+                
+                $dom.setAttribute('data-src', url)
+                $dom.setAttribute('data-desc', desc)
+                $memebox.append($dom)
+            })
+    }
+
+    window.addEventListener('DOMContentLoaded', function (){
+        $memebox = document.querySelector('#meme-box')
+        window.FreelogApp.QI.fetchPresentablesList({ resourceType: 'meme', isOnline: 1 })
+            .then(res => {
+                if(res.errcode == 0 && res.data.length){
+                    res.data.forEach(item => {
+                        const { presentableId, resourceInfo: { meta: { dependencies } }} = item
+                        dependencies && dependencies.forEach(resourceId => renderMeme(presentableId, resourceId))
+                        
+                    })
+                }
+            })
+        
+    })
+
+
+
+    
+</script>
